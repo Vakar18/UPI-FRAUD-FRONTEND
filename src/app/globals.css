@@ -1,0 +1,90 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --font-inter: "Inter", system-ui, sans-serif;
+  }
+
+  * {
+    box-sizing: border-box;
+  }
+
+  body {
+    font-family: var(--font-inter);
+  }
+
+  /* Custom scrollbar */
+  ::-webkit-scrollbar {
+    width: 5px;
+    height: 5px;
+  }
+  ::-webkit-scrollbar-track {
+    background: transparent;
+  }
+  ::-webkit-scrollbar-thumb {
+    background: #cbd5e1;
+    border-radius: 10px;
+  }
+  ::-webkit-scrollbar-thumb:hover {
+    background: #94a3b8;
+  }
+}
+
+@layer utilities {
+  .card {
+    @apply bg-white rounded-xl border border-gray-100 p-4;
+  }
+
+  .stat-card {
+    @apply bg-white rounded-xl border border-gray-100 p-4;
+  }
+
+  .risk-badge {
+    @apply inline-flex items-center gap-1.5 px-2 py-0.5 rounded-full text-xs font-medium;
+  }
+
+  .btn-primary {
+    @apply inline-flex items-center gap-2 px-3 py-1.5 bg-brand text-white
+           rounded-lg text-sm font-medium hover:bg-indigo-700 transition-colors;
+  }
+
+  .btn-ghost {
+    @apply inline-flex items-center gap-2 px-3 py-1.5 text-gray-600
+           rounded-lg text-sm hover:bg-gray-100 transition-colors;
+  }
+
+  .table-th {
+    @apply text-xs font-medium text-gray-500 text-left pb-2 border-b border-gray-100;
+  }
+
+  .table-td {
+    @apply text-sm text-gray-700 py-3 border-b border-gray-50;
+  }
+}
+
+/* Recharts tooltip */
+.recharts-tooltip-wrapper {
+  outline: none !important;
+}
+
+/* Pulsing live dot */
+@keyframes pulse-dot {
+  0%, 100% { opacity: 1; }
+  50%       { opacity: 0.4; }
+}
+
+.live-dot {
+  animation: pulse-dot 2s ease-in-out infinite;
+}
+
+/* Slide-in for new alert rows */
+@keyframes slide-in {
+  from { transform: translateY(-8px); opacity: 0; }
+  to   { transform: translateY(0);    opacity: 1; }
+}
+
+.alert-new {
+  animation: slide-in 0.2s ease-out;
+}
